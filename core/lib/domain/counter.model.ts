@@ -1,7 +1,7 @@
 import { ICounterEntity } from "./counter.entity";
 
 // create
-export const create = (counter: ICounterEntity) => ({ value: counter.value });
+export const create = (count: ICounterEntity["value"]) => ({ value: count });
 
 // increment
 export const increment = (counter: ICounterEntity) => ({
