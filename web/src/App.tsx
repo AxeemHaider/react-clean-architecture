@@ -1,8 +1,8 @@
-import { useCounterController, useCounterStoreImplementation } from "core";
+import * as core from "core";
 import React from "react";
 
 function App() {
-  const store = useCounterStoreImplementation();
+  const store = core.useCounterStoreImplementation();
   const {
     count,
     shouldDisableButton,
@@ -10,7 +10,7 @@ function App() {
     getCounter,
     incrementCounter,
     decrementCounter,
-  } = useCounterController(store);
+  } = core.useCounterController(store);
 
   React.useEffect(() => {
     getCounter();
