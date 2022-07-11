@@ -1,13 +1,12 @@
-// @ts-ignore
-import { useCounterStoreImplementation, useCounterController } from "core";
+import { useCounterController, useCounterStoreImplementation } from "core";
 import React from "react";
 
 function App() {
   const store = useCounterStoreImplementation();
   const {
     count,
-    canDecrement,
-    isLoading,
+    shouldDisableButton,
+    shouldShowSpinner,
     getCounter,
     incrementCounter,
     decrementCounter,
@@ -19,11 +18,11 @@ function App() {
 
   return (
     <div className="App">
-      {isLoading ? (
+      {shouldShowSpinner ? (
         <div>Loading...</div>
       ) : (
         <>
-          <button onClick={decrementCounter} disabled={!canDecrement}>
+          <button onClick={decrementCounter} disabled={!shouldDisableButton}>
             dec
           </button>
           <div>{count}</div>
